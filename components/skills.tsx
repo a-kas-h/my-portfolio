@@ -169,17 +169,7 @@ export default function Skills() {
       </section>
 
       {/* Content after skills section */}
-      <div className="h-screen flex items-center justify-center bg-gradient-to-t from-gray-900 to-black">
-        <div className="text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            Let's Work Together
-          </h2>
-          <p className="text-xl text-gray-400 mb-8">Ready to bring your ideas to life</p>
-          <button className="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full font-semibold hover:from-purple-600 hover:to-blue-600 transition-all duration-200 transform hover:scale-105">
-            Get In Touch
-          </button>
-        </div>
-      </div>
+      
     </div>
   )
 }
