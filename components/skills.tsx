@@ -35,15 +35,6 @@ export default function Skills() {
 
   return (
     <div className="min-h-screen bg-transparent text-white">
-      {/* Hero section before skills */}
-      <div className="h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black">
-        <div className="text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-            Portfolio
-          </h1>
-          <p className="text-xl text-gray-400">Scroll down to explore my skills</p>
-        </div>
-      </div>
 
       {/* Technical Skills Section */}
       <section ref={sectionRef} className="relative px-4 md:px-8 py-16 bg-transparent text-white">

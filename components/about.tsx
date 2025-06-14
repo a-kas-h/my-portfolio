@@ -22,7 +22,7 @@ export default function About() {
   const contentScale = useTransform(scrollYProgress, [0.1, 0.4], [0.95, 1])
 
   return (
-    <section ref={ref} className="relative py-32 px-4 md:px-8 overflow-hidden">
+    <section ref={ref} className="relative py-12 px-4 md:px-8 overflow-hidden">
       <div className="mx-auto max-w-4xl relative">
         {/* Top Left Curved Line */}
         <motion.svg
@@ -58,18 +58,18 @@ export default function About() {
 
         {/* Content Container */}
         <motion.div
-          className="relative z-10 bg-transparent p-8 md:p-12"
+          className="relative z-10 bg-transparent p-4 md:p-8"
           style={{
             opacity: contentOpacity,
             y: contentY,
             scale: contentScale,
           }}
         >
-          <h2 className="mb-8 text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-white to-zinc-300 bg-clip-text text-transparent">
+          <h2 className="mb-6 text-2xl md:text-3xl font-bold text-center bg-gradient-to-r from-white to-zinc-300 bg-clip-text text-transparent">
             About Me
           </h2>
 
-          <div className="space-y-6 text-zinc-300 leading-relaxed">
+          <div className="space-y-4 text-zinc-300 leading-relaxed">
             {[
               "I am Akash Saminathan, a Computer Science student at SRM Institute of Science and Technology. I specialize in creating visually appealing, user-centered web interfaces that bridge the gap between design and functionality.",
               "I focus on building full-stack applications that are accessible and practical. My passion lies in combining elegant design with efficient code to create meaningful digital experiences that solve real-world problems.",
@@ -77,7 +77,7 @@ export default function About() {
             ].map((text, i) => (
               <motion.p
                 key={i}
-                className="text-lg md:text-xl"
+                className="text-base md:text-lg"
                 style={{
                   opacity: contentOpacity,
                   y: contentY,
@@ -89,7 +89,7 @@ export default function About() {
           </div>
 
           <motion.div
-            className="flex justify-center mt-8 space-x-2"
+            className="flex justify-center mt-6 space-x-2"
             style={{
               opacity: contentOpacity,
               scale: contentScale,

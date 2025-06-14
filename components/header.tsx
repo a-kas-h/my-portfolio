@@ -44,7 +44,7 @@ export default function Header() {
           <div className="text-sm text-zinc-400">{currentTime}</div>
         </div>
 
-        <Button variant="outline" size="sm" className="border-zinc-700 hover:bg-zinc-800">
+        <Button variant="outline" size="sm" className="border-zinc-700 hover:bg-zinc-800 cursor:pointer">
           <FileText className="mr-2 h-4 w-4" />
           Résumé
         </Button>
