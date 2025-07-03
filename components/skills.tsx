@@ -1,166 +1,84 @@
 "use client"
 
-import { useRef } from "react"
-import { motion, useInView } from "framer-motion"
+import { Code2, Database, Globe, Palette, Server, Smartphone, GitBranch, Container, Flame, Zap, Box, Monitor, Cpu, Layers } from "lucide-react"
 
 const skillsData = {
-  languages: ["JavaScript", "TypeScript", "Python", "HTML/CSS", "SQL", "Java", "C++"],
-  frameworks: ["React", "Next.js", "Node.js", "Express", "Tailwind CSS", "Vue.js", "Django"],
-  tools: ["Git", "Docker", "AWS", "Figma", "VS Code", "Jest", "GitHub Actions"],
+  "technical-skills": {
+    title: "Technical Skills",
+    skills: [
+      { name: "HTML", icon: Code2, color: "#E34F26" },
+      { name: "CSS", icon: Palette, color: "#1572B6" },
+      { name: "JavaScript", icon: Zap, color: "#F7DF1E" },
+      { name: "React JS", icon: Globe, color: "#61DAFB" },
+      { name: "TypeScript", icon: Code2, color: "#3178C6" },
+      { name: "Python", icon: Cpu, color: "#3776AB" },
+      { name: "Node.js", icon: Server, color: "#339933" },
+      { name: "Next.js", icon: Layers, color: "#000000" },
+    ],
+  },
+  tools: {
+    title: "Tools",
+    skills: [
+      { name: "GitHub", icon: GitBranch, color: "#181717" },
+      { name: "VS Code", icon: Monitor, color: "#007ACC" },
+      { name: "Figma", icon: Box, color: "#F24E1E" },
+      { name: "Postman", icon: Zap, color: "#FF6C37" },
+      { name: "Chrome DevTools", icon: Globe, color: "#4285F4" },
+      { name: "Terminal", icon: Server, color: "#000000" },
+    ],
+  },
+  frameworks: {
+    title: "Frameworks",
+    skills: [
+      { name: "React", icon: Globe, color: "#61DAFB" },
+      { name: "Next.js", icon: Layers, color: "#000000" },
+      { name: "Express.js", icon: Server, color: "#000000" },
+      { name: "Firebase", icon: Flame, color: "#FFCA28" },
+      { name: "MongoDB", icon: Database, color: "#47A248" },
+      { name: "Docker", icon: Container, color: "#2496ED" },
+      { name: "Tailwind CSS", icon: Palette, color: "#06B6D4" },
+      { name: "Framer Motion", icon: Smartphone, color: "#0055FF" },
+    ],
+  },
 }
 
-export default function Skills() {
-  const sectionRef = useRef(null)
-  const headerRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: false, amount: 0.2 })
-  const isHeaderInView = useInView(headerRef, { once: false, margin: "-10%" })
-
-  const categoryVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, delay: i * 0.3 },
-    }),
-  }
-
-  const skillItemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.4, delay: i * 0.1 },
-    }),
-  }
-
+export default function SkillsSection() {
   return (
-    <div className="min-h-screen bg-transparent text-white">
-
-      {/* Technical Skills Section */}
-      <section ref={sectionRef} className="relative px-4 md:px-8 py-16 bg-transparent text-white">
-        <div className="max-w-4xl mx-auto">
-          {/* Sticky header */}
-          <motion.div
-            ref={headerRef}
-            className="sticky top-0 z-20 bg-transparent py-6 mb-8"
-            initial="hidden"
-            animate={isHeaderInView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0, y: -20 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-            }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-center">
-              Technical Skills
+    <section className="w-full bg-transparent text-gray-100 py-24 min-h-screen relative z-10 mt-50">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
+        <h1 className="text-4xl md:text-6xl font-bold text-primary-400 mb-8 text-center">
+          Skills
+        </h1>
+        <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed mb-16 text-center">
+          The tools and technologies I've learned from development
+        </p>
+        {Object.values(skillsData).map((section) => (
+          <div key={section.title} className="mb-20 relative z-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-400 mb-8 text-center">
+              {section.title}
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto mt-3 rounded-full" />
-          </motion.div>
-
-          {/* Vertically stacked skill categories */}
-          <motion.div
-            className="space-y-20 pb-16"
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { duration: 0.6, staggerChildren: 0.3 } },
-            }}
-          >
-            {/* Languages */}
-            <motion.div 
-              custom={0} 
-              variants={categoryVariants}
-              className="relative"
-            >
-              <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-purple-300 flex items-center">
-                <span className="w-3 h-3 bg-purple-400 rounded-full mr-4"></span>
-                Languages
-              </h3>
-              <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-                variants={{
-                  visible: { transition: { staggerChildren: 0.1 } }
-                }}
-              >
-                {skillsData.languages.map((skill, i) => (
-                  <motion.div
-                    key={i}
-                    custom={i}
-                    variants={skillItemVariants}
-                    className="flex items-center p-3 rounded-lg bg-gray-900/50 hover:bg-gray-800/50 transition-colors duration-200 border border-gray-800 hover:border-purple-400/30"
-                  >
-                    <span className="w-2 h-2 bg-purple-400 rounded-full mr-3 flex-shrink-0"></span>
-                    <span className="text-gray-300 font-medium">{skill}</span>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </motion.div>
-
-            {/* Frameworks */}
-            <motion.div 
-              custom={1} 
-              variants={categoryVariants}
-              className="relative"
-            >
-              <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-blue-300 flex items-center">
-                <span className="w-3 h-3 bg-blue-400 rounded-full mr-4"></span>
-                Frameworks
-              </h3>
-              <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-                variants={{
-                  visible: { transition: { staggerChildren: 0.1 } }
-                }}
-              >
-                {skillsData.frameworks.map((skill, i) => (
-                  <motion.div
-                    key={i}
-                    custom={i}
-                    variants={skillItemVariants}
-                    className="flex items-center p-3 rounded-lg bg-gray-900/50 hover:bg-gray-800/50 transition-colors duration-200 border border-gray-800 hover:border-blue-400/30"
-                  >
-                    <span className="w-2 h-2 bg-blue-400 rounded-full mr-3 flex-shrink-0"></span>
-                    <span className="text-gray-300 font-medium">{skill}</span>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </motion.div>
-
-            {/* Tools */}
-            <motion.div 
-              custom={2} 
-              variants={categoryVariants}
-              className="relative"
-            >
-              <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-green-300 flex items-center">
-                <span className="w-3 h-3 bg-green-400 rounded-full mr-4"></span>
-                Tools
-              </h3>
-              <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-                variants={{
-                  visible: { transition: { staggerChildren: 0.1 } }
-                }}
-              >
-                {skillsData.tools.map((skill, i) => (
-                  <motion.div
-                    key={i}
-                    custom={i}
-                    variants={skillItemVariants}
-                    className="flex items-center p-3 rounded-lg bg-gray-900/50 hover:bg-gray-800/50 transition-colors duration-200 border border-gray-800 hover:border-green-400/30"
-                  >
-                    <span className="w-2 h-2 bg-green-400 rounded-full mr-3 flex-shrink-0"></span>
-                    <span className="text-gray-300 font-medium">{skill}</span>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Content after skills section */}
-      
-    </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+              {section.skills.map((skill) => (
+                <div
+                  key={skill.name}
+                  className="group bg-gray-900 rounded-xl p-6 shadow-lg border border-gray-800 flex flex-col items-center text-center space-y-4 min-h-[140px] relative z-10"
+                >
+                  <div className="p-4 rounded-full bg-gray-800 mb-2 flex items-center justify-center">
+                    <skill.icon
+                      className="w-8 h-8 text-primary-400"
+                      style={{ color: skill.color, zIndex: 10, position: 'relative' }}
+                    />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-100">
+                    {skill.name}
+                  </h3>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="absolute inset-0 bg-transparent" />
+    </section>
   )
 }

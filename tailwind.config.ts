@@ -79,4 +79,15 @@ const config = {
   
 } satisfies Config
 
+module.exports = {
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+  corePlugins: {
+    scrollBehavior: false,
+  },
+}
+
+
 export default config

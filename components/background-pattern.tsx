@@ -39,10 +39,10 @@ const ctx = canvas.getContext("2d", { alpha: true })
     initializeCanvas()
 
     const draw = () => {
-  ctx.fillStyle = "rgba(0, 0, 0, 0.4)"
+  ctx.fillStyle = "rgb(0, 0, 0)"
   ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-  ctx.fillStyle = "#2a2625"
+  ctx.fillStyle = "#1c1917"
   ctx.font = `${fontSize}px monospace`
 
   for (let row = 0; row < binaryRef.current.length; row++) {

@@ -3,10 +3,10 @@ import Header from "@/components/header"
 import Hero from "@/components/hero"
 import About from "@/components/about"
 import Skills from "@/components/skills"
-import Projects from "@/components/projects"
 import Footer from "@/components/footer"
 import BackgroundPattern from "@/components/background-pattern"
 import ScrollProgressBar from "@/components/ScrollProgressBar"
+import Projects from "@/components/projects"
 
 export default function Home() {
   return (
