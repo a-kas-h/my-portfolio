@@ -73,15 +73,21 @@ const P1: React.FC = () => {
   useLayoutEffect(() => {
     const updatePosition = () => {
       if (divRef.current) {
-        setDivTop(divRef.current.offsetTop)
-        setDivHeight(divRef.current.offsetHeight)
+        const rect = divRef.current.getBoundingClientRect()
+        setDivTop(window.scrollY + rect.top)
+        setDivHeight(rect.height)
       }
     }
 
-    updatePosition() // run once on mount
+    // Defer layout measurement until browser paints everything
+    const frame = requestAnimationFrame(() => {
+      updatePosition()
+    })
+
     window.addEventListener("resize", updatePosition)
 
     return () => {
+      cancelAnimationFrame(frame)
       window.removeEventListener("resize", updatePosition)
     }
   }, [])
