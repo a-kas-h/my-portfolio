@@ -23,3 +23,16 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Hide the default cursor everywhere */
+html, body, button, a, input, textarea, [role="button"], .cursor-pointer {
+  cursor: none !important;
+}
+
+/* Force-hide the system cursor everywhere */
+*,
+*:hover,
+*:active,
+*:focus {
+  cursor: none !important;
+}

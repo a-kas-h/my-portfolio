@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import CustomCursor from "@/components/custom-cursor"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -19,8 +20,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <style>
+          {`
+            * { cursor: none !important; }
+            *:hover, *:active, *:focus { cursor: none !important; }
+          `}
+        </style>
+      </head>
       <body className={`${inter.className} bg-gradient-to-br from-gray-900 to-black text-gray-100 antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
+          <CustomCursor />
           {children}
         </ThemeProvider>
       </body>
